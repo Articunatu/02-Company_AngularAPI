@@ -8,7 +8,7 @@ import { EmployeeService } from './Service/employee.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Company';
+  title = 'UI';
 
   employees: Employee[] = [];
 
@@ -21,8 +21,8 @@ export class AppComponent {
     phoneNumber: '',
     securityNumber: '',
     salary: '',
-    genderID: '',
-    departmentID: ''
+    departmentID: '',
+    genderID: ''
   }
 
   constructor(private employeeService : EmployeeService){

@@ -13,9 +13,12 @@ namespace Company_API.Service
             _context = context;
         }
 
-        public Task<Employee> Create(Employee entity)
+        public async Task<Employee> Create(Employee entity)
         {
-            throw new NotImplementedException();
+            entity.EmployeeID = new Guid();
+            var created = await _context.Employees.AddAsync(entity);
+            await _context.SaveChangesAsync();
+            return created.Entity;
         }
 
         public async Task<IEnumerable<Employee>> ReadAll()
@@ -23,19 +26,30 @@ namespace Company_API.Service
             return await _context.Employees.ToArrayAsync();
         }
 
-        public Task<Employee> ReadSingle(int id)
+        public async Task<Employee> ReadSingle(Guid id)
         {
-            throw new NotImplementedException();
+            var singleEmployee = await _context.Employees.FirstOrDefaultAsync(e => e.EmployeeID == id);
+            return singleEmployee;
         }
 
-        public Task<Employee> Update(Employee entity)
+        public async Task<Employee> Update(Employee entity, Guid id)
         {
-            throw new NotImplementedException();
+            var updated = await _context.Employees.FirstOrDefaultAsync(e => e.EmployeeID == entity.EmployeeID);
+            updated.Address = entity.Address;
+            updated.PhoneNumber = entity.PhoneNumber;
+            updated.EMail = entity.EMail;
+            updated.Salary = entity.Salary;
+            updated.SecurityNumber = entity.SecurityNumber;
+            await _context.SaveChangesAsync();
+            return updated;
         }
 
-        public Task<Employee> Delete(Employee entity)
+        public async Task<Employee> Delete(Guid id)
         {
-            throw new NotImplementedException();
+            var deleted = await _context.Employees.FirstOrDefaultAsync(e => e.EmployeeID == id);
+            _context.Employees.Remove(deleted);
+            await _context.SaveChangesAsync();
+            return deleted;
         }
     }
 }

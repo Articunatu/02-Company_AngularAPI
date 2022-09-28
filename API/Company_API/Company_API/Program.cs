@@ -15,9 +15,19 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(
     builder.Configuration.GetConnectionString("DatabaseConnection")));
 
+builder.Services.AddCors(
+    (setup) => {
+        setup.AddPolicy("default", (options) =>
+        {
+            options.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin();
+        });
+    });
+
 builder.Services.AddScoped<ICompany<Employee>, EmployeeRepository>();
+builder.Services.AddScoped<ICompany<Department>, DepartmentRepository>();
 
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

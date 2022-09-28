@@ -1,13 +1,13 @@
 
 <div class="container">
 
-  <h1>Välkommen till Amaddas hemsida för organisation!</h1>
+  <h1>Välkommen till företagets hemsida för organisation!</h1>
   <h3>Här nedan kan du se alla som arbetar på vårt företag: </h3>
   <div class="employee-container">
     <div class="employee-members">
       <div class="employee-row-details" *ngFor="let employee of employees">
-        <p>{{employee.lastName}}</p>
-        <p>{{employee.salary}}</p>
+        <h6>{{employee.lastName}}</h6>
+        <h6>{{employee.salary}}</h6>
       </div>
       <!-- <table class="table table-striped"> 
         <thead> 
@@ -31,6 +31,12 @@
   </div>
 </div>
   
+
+
+
+
+
+
     <!-- <div class="card-grid">
       <div (click)="populateForm(card)" class="card-row" *ngFor ="let card of cards">
         <div class="card-row-details">
