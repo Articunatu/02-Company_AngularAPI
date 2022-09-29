@@ -23,6 +23,8 @@ builder.Services.AddCors(
         });
     });
 
+
+
 builder.Services.AddScoped<ICompany<Employee>, EmployeeRepository>();
 builder.Services.AddScoped<ICompany<Department>, DepartmentRepository>();
 
@@ -43,3 +45,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+app.UseCors();

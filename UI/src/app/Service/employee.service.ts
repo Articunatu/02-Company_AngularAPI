@@ -12,32 +12,30 @@ export class EmployeeService{
 
     constructor(private http:HttpClient){ }
 
+    //Add and create a new employee
+    CreateEmployee(employee:Employee):Observable<Employee>{
+        employee.employeeID = '00000000-0000-0000-0000-000000000000';
 
-    //Read all objects from the Employee table
+        return this.http.post<Employee>(this.baseUrl, employee);
+    }
+
+    //Get all objects from the Employee table
     ReadAllEmployees():Observable<Employee[]>{
         return this.http.get<Employee[]>(this.baseUrl);
     }
+
+    //Get one chosen employee
+    ReadSingleEmployee(id:string):Observable<Employee>{
+        return this.http.get<Employee>(this.baseUrl + '/' + id)
+    }
+
+    //Remove a chosen employee
+    DeleteEmployee(id:string):Observable<Employee>{
+        return this.http.delete<Employee>(this.baseUrl + '/' + id);
+    }
+
+    //Edit a chosen employee
+    UpdateEmployee(employee:Employee):Observable<Employee>{
+        return this.http.put<Employee>(this.baseUrl + '/' + employee.employeeID, employee);
+    }
 }
-
-//     //Add new Card
-//     AddCard(card:Card):Observable<Card>{
-//         card.id = '00000000-0000-0000-0000-000000000000';
-
-//         return this.http.post<Card>(this.baseUrl, card);
-//     }
-
-//     //Delete Card
-//     DeleteCard(id:string):Observable<Card>{
-//         return this.http.delete<Card>(this.baseUrl + '/' + id);
-//     }
-
-//     //Update Card
-//     UpdateCard(card:Card):Observable<Card>{
-//         return this.http.put<Card>(this.baseUrl + '/' + card.id, card);
-//     }
-
-//     //Get single Card
-//     GetSingleCard(id:string):Observable<Card>{
-//         return this.http.get<Card>(this.baseUrl + '/' + id)
-//     }
-// }

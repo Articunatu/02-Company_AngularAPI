@@ -13,7 +13,7 @@ export class AppComponent {
   employees: Employee[] = [];
 
   employee: Employee = {
-    id: '',
+    employeeID: '',
     firstName: '',
     lastName: '',
     address: '',
@@ -40,52 +40,56 @@ export class AppComponent {
         this.employees = response;
       });
   }
+
+  
+ //Add
+ onSubmit(){
+  if(this.employee.employeeID == ''){
+    this.employeeService.CreateEmployee(this.employee)
+    .subscribe
+    (
+      response => {
+        this.readAllEmployees();
+        this.employee = {
+          employeeID : '',
+          firstName : '',
+          lastName : '',
+          address: '',
+          email: '',
+          phoneNumber: '',
+          securityNumber: '',
+          salary: '',
+          departmentID: '',
+          genderID: ''
+        }
+      }
+    );
+  }
+  else{
+    this.updateCard(this.employee);
+  }
+ }
+
+ //Edit
+ updateCard(employee:Employee){
+  this.employeeService.UpdateEmployee(employee).subscribe(
+    response => {
+      this.readAllEmployees()
+    }
+  )
+ }
+
+ //Remove
+ onDelete(id:string){
+  this.employeeService.DeleteEmployee(id)
+  .subscribe(
+    response => {
+      this.readAllEmployees();
+    }
+  )
+ }
+
+ populateForm(employee:Employee){
+  this.employee = employee;
+ }
 }
-
-//  //Add
-//  onSubmit(){
-//   if(this.card.id == ''){
-//     this.cardService.AddCard(this.card)
-//     .subscribe
-//     (
-//       response => {
-//         this.getAllCards();
-//         this.card = {
-//           id : '',
-//           cardNumber : '',
-//           holderName : '',
-//           expireMonth: '',
-//           expireYear: '',
-//           cvc: ''
-//         }
-//       }
-//     );
-//   }
-//   else{
-//     this.updateCard(this.card);
-//   }
-//  }
-
-//  //Update
-//  updateCard(card:Card){
-//   this.cardService.UpdateCard(card).subscribe(
-//     response => {
-//       this.getAllCards()
-//     }
-//   )
-//  }
-
-//  //Delete
-//  onDelete(id:string){
-//   this.cardService.DeleteCard(id)
-//   .subscribe(
-//     response => {
-//       this.getAllCards();
-//     }
-//   )
-//  }
-
-//  populateForm(card:Card){
-//   this.card = card;
-//  }
-// }
