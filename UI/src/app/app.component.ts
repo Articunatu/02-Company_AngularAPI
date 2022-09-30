@@ -29,6 +29,10 @@ export class AppComponent {
 
   }
 
+  // orderEmployees():void{
+  //   this.employees.sort(e )
+  // }
+
   ngOnInit():void{
     this.readAllEmployees();
   }

@@ -4,13 +4,9 @@
   <h1>Välkommen till företagets hemsida för organisation!</h1>
   <h3>Här nedan kan du se alla som arbetar på vårt företag: </h3>
   <div class="employee-container">
-    <div class="employee-members">
-      <div class="employee-row-details" *ngFor="let employee of employees">
-        <h6>{{employee.lastName}}</h6>
-        <h6>{{employee.salary}}</h6>
-      </div>
-      <!-- <table class="table table-striped"> 
+      <table class="table table-striped"> 
         <thead> 
+          <th>Avdelning</th>
           <th>Namn</th>
           <th>Personnummer</th>
           <th>Adress</th>
@@ -19,15 +15,15 @@
         </thead>
         <tbody>
           <tr *ngFor="let employee of employees">
-            <td>{{employee.lastName}} + ", " + {{employee.firstName}}</td>
+            <td>{{employee.departmentID}}</td>
+            <td>{{employee.lastName}}, {{employee.firstName}}</td>
             <td>{{employee.securityNumber}}</td>
             <td>{{employee.address}}</td>
             <td>{{employee.phoneNumber}}</td>
             <td>{{employee.salary}}</td>
           </tr>       
         </tbody>
-      </table>  -->
-    </div>
+      </table> 
   </div>
 </div>
   
