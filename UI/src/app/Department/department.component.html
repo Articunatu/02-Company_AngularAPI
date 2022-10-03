@@ -1,0 +1,11 @@
+<div class="department-container">
+    <h3>Alla avdelningar</h3>
+   <table>
+    <tbody>
+      <tr *ngFor="let department of departments">
+        <td>{{department.departmentID}}</td>
+        <td>{{department.departmentName}}</td>
+      </tr>       
+    </tbody>
+   </table> 
+</div>
