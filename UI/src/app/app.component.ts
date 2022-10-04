@@ -66,7 +66,7 @@ export class AppComponent {
   
     
    //Add
-   onSubmit(){
+   saveEmployee(){
     if(this.employee.employeeID == ''){
       this.employeeService.CreateEmployee(this.employee)
       .subscribe
@@ -89,12 +89,12 @@ export class AppComponent {
       );
     }
     else{
-      this.updateCard(this.employee);
+      this.updateEmployee(this.employee);
     }
    }
   
    //Edit
-   updateCard(employee:Employee){
+   updateEmployee(employee:Employee){
     this.employeeService.UpdateEmployee(employee).subscribe(
       response => {
         this.readAllEmployees()

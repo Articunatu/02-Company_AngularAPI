@@ -27,10 +27,13 @@
         </table> 
   
         <div class="cards-form">
-          <form #form="ngForm" (ngSubmit)="onSubmit()">
+          <form #form="ngForm" (ngSubmit)="saveEmployee()">
+
           <div class="form-group">
             <label for="">Namn</label>
-            <input type="text" name="fullname" [(ngModel)] ="employee.firstName" [(ngModel)] ="employee.lastName"> 
+            <input type="text" name="firstName" [(ngModel)] ="employee.firstName"> 
+            <input type="text" name="lastName" [(ngModel)] ="employee.lastName"> 
+
           </div>
       
           <div class="form-group">
@@ -59,16 +62,21 @@
             </div>
 
             <div class="form-group">
-              <label>Avdelning</label>
               <select>
-                <option *ngFor="let department of departments" value="{{department.departmentID}}">{{department.departmentName}}</option>
+                <option><i>AVDELNING</i></option>
+                <option [value]="employee.departmentID" *ngFor="let department of departments">
+                  {{department.departmentName}}
+
+                </option>
               </select>
             </div>
 
             <div class="form-group">
-              <label>Kön</label>
               <select>
-                <option *ngFor="let gender of genders" value="{{gender.genderID}}">{{gender.genderName}}</option>
+                <option><i>KÖN</i></option>
+                <option [value]="employee.genderID" *ngFor="let gender of genders" >
+                  {{gender.genderName}}
+                </option>
               </select>
             </div>
           </div>
@@ -79,7 +87,7 @@
           </form>
       
         </div>
-    </div> >
+    </div> 
   </div>
 
   <div class="department-container">
