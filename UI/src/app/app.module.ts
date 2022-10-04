@@ -4,15 +4,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { DepartmentComponent } from './Department/department.component';
+import { DepartmentComponent } from './department/department.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { EmployeeService } from './Service/employee.service';
-import { DepartmentService } from './Service/department.repository';
+import { EmployeeService } from './employee/employee.service';
+import { DepartmentService } from './department/department.repository';
+import { EmployeeComponent } from './employee/employee.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DepartmentComponent
+    DepartmentComponent,
+    EmployeeComponent
   ],
   imports: [
     BrowserModule,

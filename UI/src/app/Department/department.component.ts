@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { DepartmentService } from '../Service/department.repository';
-import { Department } from '../Models/department.model';
+import { DepartmentService } from './department.repository';
+import { Department } from './department.model';
 
 @Component({
   selector: 'app-department',

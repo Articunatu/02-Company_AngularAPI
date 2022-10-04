@@ -1,5 +1,5 @@
 import { HttpClient } from "@angular/common/http";
-import { Department } from "../Models/department.model";
+import { Department } from "./department.model";
 import { Injectable } from "@angular/core";
 import { Observable, observable } from "rxjs";
 
