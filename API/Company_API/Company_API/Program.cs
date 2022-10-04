@@ -23,10 +23,9 @@ builder.Services.AddCors(
         });
     });
 
-
-
 builder.Services.AddScoped<ICompany<Employee>, EmployeeRepository>();
 builder.Services.AddScoped<ICompany<Department>, DepartmentRepository>();
+builder.Services.AddScoped<ICompany<Gender>, GenderRepository>();
 
 var app = builder.Build();
 

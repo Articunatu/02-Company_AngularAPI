@@ -40,7 +40,7 @@ namespace Company_API.Controllers
             {
                 return Ok(department);
             }
-            return NotFound("Vald anställd fanns ej!");
+            return NotFound("Vald avdelning fanns ej!");
         }
 
         [HttpPut]
@@ -52,7 +52,7 @@ namespace Company_API.Controllers
             {
                 return Ok(updated);
             }
-            return NotFound("Kunde ej hitta en vald anställd att updatera!");
+            return NotFound("Kunde ej hitta en vald avdelning att updatera!");
         }
 
         [HttpDelete]
@@ -64,7 +64,7 @@ namespace Company_API.Controllers
             {
                 return Ok(deleted);
             }
-            return NotFound("Kunde ej hitta en vald anställd att radera!");
+            return NotFound("Kunde ej hitta en vald avdelning att radera!");
         }
     }
 }

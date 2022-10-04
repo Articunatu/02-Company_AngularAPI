@@ -9,8 +9,8 @@ import { Department } from './department.model';
   styleUrls: ['./department.component.css']
 })
 export class DepartmentComponent implements OnInit {
-
-  departments: Department[] = [];
+   
+departments: Department[] = [];
 
   department: Department = {
     departmentID: '',
