@@ -1,11 +1,12 @@
-<div class="department-container">
-    <h3>Alla avdelningar</h3>
-   <table>
+<table class="table table-striped">
+    <thead>
+        <th>ID</th>
+        <th>Avdelning</th>
+    </thead>
     <tbody>
-      <tr *ngFor="let department of departments">
-        <td>{{department.departmentID}}</td>
-        <td>{{department.departmentName}}</td>
-      </tr>       
+        <tr *ngFor="let department of departments">
+            <td>{{department.departmentID}}</td>
+            <td>{{department.departmentName}}</td>
+        </tr>
     </tbody>
-   </table> 
-</div>
+</table>

@@ -25,9 +25,7 @@ export class AppComponent {
     genderID: ''
   }
 
-  constructor(private employeeService : EmployeeService){
-
-  }
+  constructor(private employeeService : EmployeeService){ }
 
   // orderEmployees():void{
   //   this.employees.sort(e )

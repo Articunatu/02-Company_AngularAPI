@@ -1,14 +1,14 @@
-import { Component } from '@angular/core';
-import { Department } from './department.model';
-import { DepartmentService } from './department.repository';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { DepartmentService } from '../Service/department.repository';
+import { Department } from '../Models/department.model';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-department',
   templateUrl: './department.component.html',
-//   styleUrls: ['./app.component.css']
+  styleUrls: ['./department.component.css']
 })
-export class DepartmentComponent {
-  title = 'UI';
+export class DepartmentComponent implements OnInit {
 
   departments: Department[] = [];
 
@@ -17,13 +17,7 @@ export class DepartmentComponent {
     departmentName: ''
   }
 
-  constructor(private departmentService : DepartmentService){
-
-  }
-
-  // orderEmployees():void{
-  //   this.employees.sort(e )
-  // }
+  constructor(private departmentService : DepartmentService) { }
 
   ngOnInit():void{
     this.readAllDepartments();
@@ -36,48 +30,4 @@ export class DepartmentComponent {
         this.departments = response;
       });
   }
-
-  
- //Add
- onSubmit(){
-  if(this.department.departmentID == ''){
-    this.departmentService.CreateDepartment(this.department)
-    .subscribe
-    (
-      response => {
-        this.readAllDepartments();
-        this.department = {
-          departmentID: '',
-          departmentName: ''
-        }
-      }
-    );
-  }
-  else{
-    this.updateDepartment(this.department);
-  }
- }
-
- //Edit
- updateDepartment(department:Department){
-  this.departmentService.UpdateDepartment(department).subscribe(
-    response => {
-      this.readAllDepartments()
-    }
-  )
- }
-
- //Remove
- onDelete(id:string){
-  this.departmentService.DeleteDepartment(id)
-  .subscribe(
-    response => {
-      this.readAllDepartments();
-    }
-  )
- }
-
- populateForm(department:Department){
-  this.department = department;
- }
 }
