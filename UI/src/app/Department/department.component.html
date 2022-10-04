@@ -8,5 +8,15 @@
             <td>{{department.departmentID}}</td>
             <td>{{department.departmentName}}</td>
         </tr>
+
+
     </tbody>
 </table>
+
+          
+<div class="form-group">
+    <label>Avdelning</label>
+    <select>
+      <option *ngFor="let department of departments">{{department.departmentName}}</option>
+    </select>
+  </div>

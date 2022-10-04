@@ -3,10 +3,11 @@ import { Employee } from './Models/employee.model';
 import { EmployeeService } from './Service/employee.service';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-root', 
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   title = 'UI';
 

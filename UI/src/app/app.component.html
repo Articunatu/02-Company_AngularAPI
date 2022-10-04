@@ -24,9 +24,53 @@
           </tr>       
         </tbody>
       </table> 
+
+      <div class="cards-form">
+        <form #form="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="">Namn</label>
+          <input type="text" name="fullname" [(ngModel)] ="employee.firstName" [(ngModel)] ="employee.lastName"> 
+        </div>
+    
+        <div class="form-group">
+          <label for="">Personnummer</label>
+          <input type="text" name="securityNumber" [(ngModel)] ="employee.securityNumber"> 
+        </div>
+    
+        <div class="form-group form-group-inline">
+    
+          <div class="form-group">
+            <label for="">Adress</label>
+            <input type="text" name="address" [(ngModel)] ="employee.address"> 
+          </div>
       
+          <div class="form-group">
+            <label for="">E-Post</label>
+            <input type="text" name="email" [(ngModel)] ="employee.email"> 
+          </div>
+          <div class="form-group">
+            <label for="">Telefonnummer</label>
+            <input type="text" name="phoneNumber" [(ngModel)] ="employee.phoneNumber"> 
+          </div>
+          <div class="form-group">
+            <label for="">Lön</label>
+            <input type="text" name="salary" [(ngModel)] ="employee.salary"> 
+          </div>
+
+
+          
+        </div>
+    
+        <div class="form-group">
+          <button>SPARA</button>
+        </div>
+        </form>
+    
+      </div>
+  </div> 
+      <h3>Alla avdelningar</h3>
       <app-department></app-department>
-    </div>
+</div>
 
 
 

@@ -23,7 +23,7 @@ namespace Company_API.Service
 
         public async Task<IEnumerable<Employee>> ReadAll()
         {
-            return await _context.Employees.ToArrayAsync();
+            return await _context.Employees.OrderBy(e => e.LastName).ToArrayAsync();
         }
 
         public async Task<Employee> ReadSingle(Guid id)
