@@ -3,7 +3,7 @@ export interface Employee{
     firstName:string,
     lastName:string,
     address:string,
-    email:string,
+    eMail:string,
     phoneNumber:string,
     securityNumber:string,
     salary:string,
