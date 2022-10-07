@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { EmployeeService } from './employee/employee.service';
 import { DepartmentService } from './department/department.repository';
 
@@ -16,9 +16,8 @@ import { DepartmentService } from './department/department.repository';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
+    FormsModule
+    ],
   providers: [EmployeeService, DepartmentService],
   bootstrap: [AppComponent]
 })
