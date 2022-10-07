@@ -58,23 +58,29 @@
             </div>
             <div class="form-group">
               <label for="">Lön</label>
-              <input type="text" name="salary" [(ngModel)] ="employee.salary"> 
+              <input type="number" name="salary" [(ngModel)] ="employee.salary"> 
             </div>
 
             <div class="form-group">
-              <select>
+              <select name="department" [(ngModel)] = "employee.departmentID">
+                <option value="" >AVDELNING</option>
+                <option *ngFor="let department of departments" value="{{department.departmentID}}">
+                  {{department.departmentName}}
+                </option>
+              </select>
+              <!-- <select>
                 <option><i>AVDELNING</i></option>
                 <option [value]="employee.departmentID" *ngFor="let department of departments">
                   {{department.departmentName}}
 
                 </option>
-              </select>
+              </select> -->
             </div>
 
             <div class="form-group">
-              <select>
-                <option><i>KÖN</i></option>
-                <option [value]="employee.genderID" *ngFor="let gender of genders" >
+              <select name="gender" [(ngModel)] = "employee.genderID">
+                <option value="" >KÖN</option>
+                <option *ngFor="let gender of genders" value="{{gender.genderID}}">
                   {{gender.genderName}}
                 </option>
               </select>
@@ -107,7 +113,6 @@
     
         </tbody>
     </table>
-    
     
   </div>
     

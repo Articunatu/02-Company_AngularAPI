@@ -25,9 +25,9 @@ export class AppComponent {
     eMail: '',
     phoneNumber: '',
     securityNumber: '',
-    salary: '',
+    salary: parseInt('',10),
     departmentID: '',
-    genderID: ''
+    genderID: '',
   }
 
   departments: Department[] = [];
@@ -44,9 +44,9 @@ export class AppComponent {
     genderName: ''
   }
 
-  constructor(private employeeService : EmployeeService,
-      private departmentService : DepartmentService,
-      private genderService : GenderService
+  constructor(private _employee : EmployeeService,
+      private _department : DepartmentService,
+      private _gender : GenderService
     ){ }
 
 
@@ -57,7 +57,7 @@ export class AppComponent {
     }
   
     readAllEmployees(){
-      this.employeeService.ReadAllEmployees()
+      this._employee.ReadAllEmployees()
       .subscribe(
               response => {
           this.employees = response;
@@ -68,34 +68,32 @@ export class AppComponent {
    //Add
    saveEmployee(){
     if(this.employee.employeeID == ''){
-      this.employeeService.CreateEmployee(this.employee)
-      .subscribe
-      (
+      this._employee.CreateEmployee(this.employee).subscribe(
         response => {
           this.readAllEmployees();
-          this.employee = {
-            employeeID : '',
-            firstName : '',
-            lastName : '',
-            address: '',
-            eMail: '',
-            phoneNumber: '',
-            securityNumber: '',
-            salary: '',
-            departmentID: '',
-            genderID: ''
-          }
         }
       );
     }
     else{
       this.updateEmployee(this.employee);
     }
+    this.employee = {
+      employeeID : '',
+      firstName : '',
+      lastName : '',
+      address: '',
+      eMail: '',
+      phoneNumber: '',
+      securityNumber: '',
+      salary: parseInt('',10),
+      departmentID: '',
+      genderID: '',
+    }
    }
   
    //Edit
    updateEmployee(employee:Employee){
-    this.employeeService.UpdateEmployee(employee).subscribe(
+    this._employee.UpdateEmployee(employee).subscribe(
       response => {
         this.readAllEmployees()
       }
@@ -103,8 +101,8 @@ export class AppComponent {
    }
   
    //Remove
-   onDelete(id:string){
-    this.employeeService.DeleteEmployee(id)
+   deleteEmployee(id:string){
+    this._employee.DeleteEmployee(id)
     .subscribe(
       response => {
         this.readAllEmployees();
@@ -118,7 +116,7 @@ export class AppComponent {
   
    
   readAllDepartments(){
-    this.departmentService.ReadAllDepartments()
+    this._department.ReadAllDepartments()
     .subscribe(
             response => {
         this.departments = response;
@@ -126,7 +124,7 @@ export class AppComponent {
   }
 
   readAllGenders(){
-    this.genderService.ReadAllGenders()
+    this._gender.ReadAllGenders()
     .subscribe(
             response => {
         this.genders = response;

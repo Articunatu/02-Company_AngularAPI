@@ -1,3 +1,4 @@
+
 export interface Employee{
     employeeID:string,
     firstName:string,
@@ -6,7 +7,7 @@ export interface Employee{
     eMail:string,
     phoneNumber:string,
     securityNumber:string,
-    salary:string,
+    salary:number,
     departmentID:string,
-    genderID:string
+    genderID:string,
 }
