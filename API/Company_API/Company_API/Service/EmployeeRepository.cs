@@ -23,12 +23,14 @@ namespace Company_API.Service
 
         public async Task<IEnumerable<Employee>> ReadAll()
         {
-            return await _context.Employees.OrderBy(e => e.LastName).ToArrayAsync();
+            return await _context.Employees.OrderBy(e => e.LastName).
+                Include(d => d.Department).Include(g => g.Gender).ToArrayAsync();
         }
 
         public async Task<Employee> ReadSingle(Guid id)
         {
-            var singleEmployee = await _context.Employees.FirstOrDefaultAsync(e => e.EmployeeID == id);
+            var singleEmployee = await _context.Employees.Include(d => d.Department).Include(g => g.Gender).
+                FirstOrDefaultAsync(e => e.EmployeeID == id);
             return singleEmployee;
         }
 

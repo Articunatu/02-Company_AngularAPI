@@ -15,14 +15,18 @@
             <th>Lön</th>
           </thead>
           <tbody>
-            <tr (click)="populateForm(employee)" *ngFor="let employee of employees">
-                <td>{{employee.departmentID}}</td>
-                <td>{{employee.lastName}}, {{employee.firstName}}</td>
+            <tr  *ngFor="let employee of employees">
+              <td>{{employee.department?.departmentName}}</td>
+                <td class="emp-name" >{{employee.lastName}}, {{employee.firstName}}
+                  <i (click)="populateForm(employee)" class="fa fa-trash"></i>
+                </td>
                 <td>{{employee.securityNumber}}</td>
                 <td>{{employee.address}}</td>
                 <td>{{employee.phoneNumber}}</td>
                 <td>{{employee.salary}}.00 kr</td>
+                  <i (click)="deleteEmployee(employee.employeeID)" class="fa fa-trash"></i>
             </tr>  
+           
 
           </tbody>
         </table> 
@@ -69,13 +73,6 @@
                   {{department.departmentName}}
                 </option>
               </select>
-              <!-- <select>
-                <option><i>AVDELNING</i></option>
-                <option [value]="employee.departmentID" *ngFor="let department of departments">
-                  {{department.departmentName}}
-
-                </option>
-              </select> -->
             </div>
 
             <div class="form-group">
@@ -116,56 +113,3 @@
   </div>
     
 </div>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="idCard.css">
-    <title>ID Card</title>
-<!--     
-    So lets start -->
-</head>
-<body>
-        <div class="container">
-            <div class="padding">
-                <div class="font">
-                    <div class="top">
-                        <img src="download.png">
-                    </div>
-                    <div class="bottom">
-                        <p>Zadafiya Brothers</p>
-                        <p class="desi">UX/UI Designer</p>
-                        <div class="barcode">
-                            <img src="qr sample.png">
-                        </div>
-                        <br>
-                        <p class="no">+91 8980849796</p>
-                        <p class="no">part-1,89 harinadad d...sdv..sdf..sfd..sd.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="back">
-                <h1 class="Details">information</h1>
-                <hr class="hr">
-                <div class="details-info">
-                    <p><b>Email : </b></p>
-                    <p>Planicsdevloper@gmail.com</p>
-                    <p><b>Mobile No: </b></p>
-                    <p>8460304196</p>
-                    <p><b>Office Address:</b></p>
-                    <p>part-1,89 harinadad d...sdv..sdf..sfd..sd.road,india</p>
-                    </div>
-                    <div class="logo">
-                        <img src="barcode.PNG">
-                    </div>
-
-                    
-                    <hr>
-                </div>
-            </div>
-        </div>
-</body>
-</html>

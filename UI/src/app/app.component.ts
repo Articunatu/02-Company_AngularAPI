@@ -28,6 +28,8 @@ export class AppComponent {
     salary: parseInt(' ',10),
     departmentID: '',
     genderID: '',
+    department: null,
+    gender: null
   }
 
   departments: Department[] = [];
@@ -88,6 +90,8 @@ export class AppComponent {
       salary: parseInt(' ',10),
       departmentID: '',
       genderID: '',
+      department: null,
+      gender: null
     }
    }
   
