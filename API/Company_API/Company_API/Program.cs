@@ -15,13 +15,11 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(
     builder.Configuration.GetConnectionString("DatabaseConnection")));
 
-builder.Services.AddCors(
-    (setup) => {
-        setup.AddPolicy("default", (options) =>
-        {
-            options.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin();
-        });
-    });
+builder.Services.AddCors(setup => setup.AddPolicy
+("default", (options =>
+{
+    options.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin();
+})));
 
 builder.Services.AddScoped<ICompany<Employee>, EmployeeRepository>();
 builder.Services.AddScoped<ICompany<Department>, DepartmentRepository>();
@@ -29,13 +27,15 @@ builder.Services.AddScoped<ICompany<Gender>, GenderRepository>();
 
 var app = builder.Build();
 
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("default");
+
 
 app.UseHttpsRedirection();
 
@@ -45,4 +45,4 @@ app.MapControllers();
 
 app.Run();
 
-app.UseCors();
+//app.UseCors();

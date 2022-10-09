@@ -15,7 +15,7 @@ export class EmployeeService{
     //Add and create a new employee
     CreateEmployee(employee:Employee):Observable<Employee>
     {
-        employee.employeeID = '0';
+        employee.employeeID = '00000000-0000-0000-0000-000000000000';
 
         return this.http.post<Employee>(this.baseUrl, employee);
     }

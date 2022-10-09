@@ -25,7 +25,7 @@ export class AppComponent {
     eMail: '',
     phoneNumber: '',
     securityNumber: '',
-    salary: parseInt('',10),
+    salary: parseInt(' ',10),
     departmentID: '',
     genderID: '',
   }
@@ -67,7 +67,7 @@ export class AppComponent {
     
    //Add
    saveEmployee(){
-    if(this.employee.employeeID == ''){
+    if(this.employee.employeeID === ''){
       this._employee.CreateEmployee(this.employee).subscribe(
         response => {
           this.readAllEmployees();
@@ -85,7 +85,7 @@ export class AppComponent {
       eMail: '',
       phoneNumber: '',
       securityNumber: '',
-      salary: parseInt('',10),
+      salary: parseInt(' ',10),
       departmentID: '',
       genderID: '',
     }
