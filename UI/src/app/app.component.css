@@ -2,15 +2,68 @@ table, th, td {
     border: 1px solid;
   }
 
+  .all-emp{
+    border-style: double;
+  }
+
 .emp-name{
     color: rgb(199, 234, 27);
 }
 
-input[type=text] {
+input[type=text], select, textarea {
     width: 100%;
+    padding: 12px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 4px;
+    resize: vertical;
+  }
+  
+  label {
+    color: #f1f1f1;
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+  }
+  
+  input[type=submit] {
+    background-color: #04AA6D;
+    color: rgb(0, 0, 0);
     padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+  .cards-form {
+    width: 20%;
+    border-radius: 5px;
+    background-color: #000000;
+    padding: 20px;
+    border-style: double;
+
+  }
+  
+  .col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+  }
+  
+  .col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
   }
 
   select {
@@ -19,4 +72,16 @@ input[type=text] {
     border: none;
     border-radius: 4px;
     background-color: #f1f1f1;
+  }
+
+  .emp-card{
+    width: 40vh;
+    height: 65vh;
+    background-color: rgb(63, 26, 99);
+    color: white;
+    
+  }
+  
+  .dropdown{
+    transform: translate(0, 3vh);
   }

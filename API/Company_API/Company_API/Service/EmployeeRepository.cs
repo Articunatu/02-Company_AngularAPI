@@ -42,6 +42,8 @@ namespace Company_API.Service
             updated.EMail = entity.EMail;
             updated.Salary = entity.Salary;
             updated.SecurityNumber = entity.SecurityNumber;
+            updated.Department = await _context.Departments.FirstOrDefaultAsync(d => d.DepartmentID == entity.DepartmentID);
+            updated.Gender = await _context.Genders.FirstOrDefaultAsync(g => g.GenderID == entity.GenderID);
             await _context.SaveChangesAsync();
             return updated;
         }

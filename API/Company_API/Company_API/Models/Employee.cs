@@ -16,7 +16,7 @@ namespace Company_API.Models
         public decimal Salary { get; set; }
         public Guid DepartmentID { get; set; }
         public Guid GenderID { get; set; }
-        public Department Department { get; set; }
-        public Gender Gender { get; set; }
+        public Department? Department { get; set; }
+        public Gender? Gender { get; set; }
     }
 }

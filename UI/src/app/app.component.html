@@ -2,13 +2,13 @@
 <div class="container">
 
   <div class="employee-container">
-  <h1>Välkommen till företagets hemsida för organisation!</h1>
+    <h1>Välkommen till företagets hemsida för organisation!</h1>
     <h3>Här nedan kan du se alla som arbetar på vårt företag: </h3>
-    <div class="employee-container">
+    <div class="all-emp">
         <table class="table table-dark"> 
           <thead class="table"> 
-            <th>Avdelning</th>
             <th>Namn</th>
+            <th>Avdelning</th>
             <th>Personnummer</th>
             <th>Adress</th>
             <th>Telefonnummer</th>
@@ -16,10 +16,10 @@
           </thead>
           <tbody>
             <tr  *ngFor="let employee of employees">
-              <td>{{employee.department?.departmentName}}</td>
                 <td class="emp-name" >{{employee.lastName}}, {{employee.firstName}}
-                  <i (click)="populateForm(employee)" class="fa fa-trash"></i>
+                  <i (click)="populateForm(employee)" class="fa fa-info"></i>
                 </td>
+                <td>{{employee.department?.departmentName}}</td>
                 <td>{{employee.securityNumber}}</td>
                 <td>{{employee.address}}</td>
                 <td>{{employee.phoneNumber}}</td>
@@ -30,15 +30,19 @@
 
           </tbody>
         </table> 
-  
-        <div class="cards-form">
+    </div>
+
+    <div class="cards-form">
           <form #form="ngForm" (ngSubmit)="saveEmployee()">
 
           <div class="form-group">
-            <label for="">Namn</label>
-            <input type="text" name="firstName" [(ngModel)] ="employee.firstName"> 
-            <input type="text" name="lastName" [(ngModel)] ="employee.lastName"> 
+            <label for="">Förnamn</label>
+            <input type="text" name="firstName" [(ngModel)] ="employee.firstName"> '
+          </div>
 
+          <div class="form-group">
+            <label for="">Efternamn</label>
+            <input type="text" name="lastName" [(ngModel)] ="employee.lastName"> 
           </div>
       
           <div class="form-group">
@@ -66,19 +70,17 @@
               <input type="number" name="salary" [(ngModel)] ="employee.salary"> 
             </div>
 
-            <div class="form-group">
+            <div class="dropdown">
               <select name="department" [(ngModel)] = "employee.departmentID">
-                <option value="" >AVDELNING</option>
-                <option *ngFor="let department of departments" value="{{department.departmentID}}">
+                <option class="dropbtn" value="" >AVDELNING</option>
+                <option class="dropdown-content" *ngFor="let department of departments" value="{{department.departmentID}}">
                   {{department.departmentName}}
                 </option>
               </select>
-            </div>
 
-            <div class="form-group">
               <select name="gender" [(ngModel)] = "employee.genderID">
-                <option value="" >KÖN</option>
-                <option *ngFor="let gender of genders" value="{{gender.genderID}}">
+                <option class="dropbtn" value="" >KÖN</option>
+                <option class="dropdown-content" *ngFor="let gender of genders" value="{{gender.genderID}}">
                   {{gender.genderName}}
                 </option>
               </select>
@@ -88,8 +90,21 @@
             <button class="button" type="submit">SPARA</button>
           </form>
       
-        </div>
-    </div> 
+    </div>
+
+    <div class="emp-card">
+      <form #form="ngForm">
+        <p class="emp-name">
+          <label for="">Lön</label> 
+        </p>
+        <p class="emp-gender"></p>
+        <p class="emp-salary"></p>
+        <p class="emp-secnumber"></p>
+        <p class="emp-address"></p>
+        <p class="emp-phone"></p>
+      </form>
+      
+    </div>
   </div>
 
   <div class="department-container">
