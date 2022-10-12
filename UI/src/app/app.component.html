@@ -16,8 +16,9 @@
           </thead>
           <tbody>
             <tr  *ngFor="let employee of employees">
-                <td class="emp-name" >{{employee.lastName}}, {{employee.firstName}}
-                  <i (click)="populateForm(employee)" class="fa fa-info"></i>
+                <td class="emp-name" >
+                    {{employee.lastName}}, {{employee.firstName}}
+                  <i (click)="populateForm(employee)" class="fa-solid fa-circle-info"></i>
                 </td>
                 <td>{{employee.department?.departmentName}}</td>
                 <td>{{employee.securityNumber}}</td>
@@ -37,7 +38,7 @@
 
           <div class="form-group">
             <label for="">Förnamn</label>
-            <input type="text" name="firstName" [(ngModel)] ="employee.firstName"> '
+            <input type="text" name="firstName" [(ngModel)] ="employee.firstName"> 
           </div>
 
           <div class="form-group">
@@ -71,14 +72,17 @@
             </div>
 
             <div class="dropdown">
-              <select name="department" [(ngModel)] = "employee.departmentID">
+              
+              <label for="">Avdelning</label>
+              <select name="department" [(ngModel)] = "employee.departmentID" class="department">
                 <option class="dropbtn" value="" >AVDELNING</option>
                 <option class="dropdown-content" *ngFor="let department of departments" value="{{department.departmentID}}">
                   {{department.departmentName}}
                 </option>
               </select>
 
-              <select name="gender" [(ngModel)] = "employee.genderID">
+              <label for="">Kön</label>
+              <select name="gender" [(ngModel)] = "employee.genderID" class="gender">
                 <option class="dropbtn" value="" >KÖN</option>
                 <option class="dropdown-content" *ngFor="let gender of genders" value="{{gender.genderID}}">
                   {{gender.genderName}}
@@ -87,7 +91,7 @@
             </div>
           </div>
       
-            <button class="button" type="submit">SPARA</button>
+            <button class="btn btn-success" type="submit">SPARA</button>
           </form>
       
     </div>

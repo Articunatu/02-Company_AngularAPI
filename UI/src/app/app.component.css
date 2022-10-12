@@ -1,13 +1,19 @@
 table, th, td {
     border: 1px solid;
+    color: #f1f1f1;
+  }
+
+  thead{
+    transform: translate(7px);
   }
 
   .all-emp{
     border-style: double;
   }
 
-.emp-name{
+.emp-name i{
     color: rgb(199, 234, 27);
+    transform: translate(10vh);
 }
 
 input[type=text], select, textarea {
@@ -44,6 +50,7 @@ input[type=text], select, textarea {
     background-color: #000000;
     padding: 20px;
     border-style: double;
+    height: 140vh;
 
   }
   
@@ -76,12 +83,33 @@ input[type=text], select, textarea {
 
   .emp-card{
     width: 40vh;
-    height: 65vh;
+    height: 80vh;
     background-color: rgb(63, 26, 99);
     color: white;
-    
+    transform: translate(75vh, -110vh);
   }
   
   .dropdown{
-    transform: translate(0, 3vh);
+    transform: translate(0, 0vh);
+  }
+
+  .container{
+    background-color: #000000;
+    color: white;
+  }
+
+  .department{
+    transform: translate(0, 0vh);
+  }
+
+  .gender{
+    transform: translate(0, 0vh);
+  }
+
+  button{
+    transform: translate(5vh, 5vh);
+    color: white;
+    background-color: #04AA6D;
+    width: 20vh;
+    font-weight: bold;
   }
