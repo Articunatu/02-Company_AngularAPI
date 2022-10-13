@@ -1,6 +1,58 @@
+.container{
+  max-width: 100%;
+  min-width: 50%;
+  max-height: 100%;
+  min-height: 50%;
+  background-color: #000000;
+  color: #f1f1f1;
+}
+
+h1{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-size: 70px;
+  font-weight: 600;
+  background-image: linear-gradient(to left, #553c9a, #b393d3);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+img {
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+}
+
+
+
+.cards-container{
+  transform: translate(30vh, 10vh);
+}
+
+.card-header{
+  transform: translate(10vh, 8vh);
+}
+
+h3{
+  transform: translate(20vh);
+}
+
+.fa .fa-trash{
+  color: rgb(200, 18, 18);
+}
+
+
 table, th, td {
     border: 1px solid;
     color: #f1f1f1;
+  }
+
+  table{
+    width: 75%;
+    transform: translate(10vh);
   }
 
   thead{
@@ -8,12 +60,29 @@ table, th, td {
   }
 
   .all-emp{
-    border-style: double;
+    transform: translate(10vh);
+
   }
+
+  .emp-name span{
+    color: rgb(219, 190, 219);
+}
 
 .emp-name i{
     color: rgb(199, 234, 27);
-    transform: translate(10vh);
+}
+
+.emp-name i ::after{
+  color:  rgb(74, 86, 18);
+}
+
+/* .salary{
+  height: 7vh;
+  
+} */
+
+input .salary {
+  transform: translate(4vh);
 }
 
 input[type=text], select, textarea {
@@ -83,20 +152,29 @@ input[type=text], select, textarea {
 
   .emp-card{
     width: 40vh;
-    height: 80vh;
+    height: 60vh;
+    background-color: rgb(63, 26, 99);
+    transform: translate(75vh, -140vh);
+    border-style: solid;
+  }
+
+  .background-img{
+    width: 40vh;
+    height: 60vh;
+    transform: translate(0, -200vh, );
+  }
+
+  .emp-card input{
     background-color: rgb(63, 26, 99);
     color: white;
-    transform: translate(75vh, -110vh);
+    width: 30vh;
+    border: 0px;
   }
   
   .dropdown{
     transform: translate(0, 0vh);
   }
 
-  .container{
-    background-color: #000000;
-    color: white;
-  }
 
   .department{
     transform: translate(0, 0vh);
@@ -113,3 +191,17 @@ input[type=text], select, textarea {
     width: 20vh;
     font-weight: bold;
   }
+
+.dept-cards{
+  width: 20%;
+    border-radius: 5px;
+    background-color: #000000;
+    padding: 20px;
+    border-style: double;
+    height: 45vh;
+    transform: translate(30vh, 10vh);
+}
+
+  /* .emp-card {
+    
+  } */

@@ -26,6 +26,7 @@ export class AppComponent {
     phoneNumber: '',
     securityNumber: '',
     salary: parseInt(' ',10),
+    profileURL: '',
     departmentID: '',
     genderID: '',
     department: null,
@@ -36,7 +37,8 @@ export class AppComponent {
 
   department: Department = {
     departmentID: '',
-    departmentName: ''
+    departmentName: '',
+    imageURL: ''
   }
 
   genders : Gender[] = [];
@@ -88,6 +90,7 @@ export class AppComponent {
       phoneNumber: '',
       securityNumber: '',
       salary: parseInt(' ',10),
+      profileURL: '',
       departmentID: '',
       genderID: '',
       department: null,
@@ -126,6 +129,48 @@ export class AppComponent {
         this.departments = response;
       });
   }
+
+  populateFormDepartment(department:Department){
+    this.department = department;
+   }
+
+      //Add
+      saveDepartment() {
+        if(this.department.departmentID === ''){
+          this._department.CreateDepartment(this.department).subscribe(
+            response => {
+              this.readAllDepartments();
+            }
+          );
+        }
+        else{
+          this.updateDepartment(this.department);
+        }
+        this.department = {
+          departmentID : '',
+          departmentName : '',
+          imageURL: ''
+        }
+       }
+
+     //Edit
+     updateDepartment(department:Department){
+      this._department.UpdateDepartment(department).subscribe(
+        response => {
+          this.readAllDepartments()
+        }
+      )
+     }
+    
+     //Remove
+     deleteDepartment(id:string){
+      this._department.DeleteDepartment(id)
+      .subscribe(
+        response => {
+          this.readAllDepartments();
+        }
+      )
+     }
 
   readAllGenders(){
     this._gender.ReadAllGenders()

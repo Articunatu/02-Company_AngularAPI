@@ -1,4 +1,3 @@
-
 <div class="container">
 
   <div class="employee-container">
@@ -10,111 +9,159 @@
             <th>Namn</th>
             <th>Avdelning</th>
             <th>Personnummer</th>
-            <th>Adress</th>
-            <th>Telefonnummer</th>
+            <!-- <th>Adress</th>
+            <th>Telefonnummer</th> -->
             <th>Lön</th>
           </thead>
           <tbody>
             <tr  *ngFor="let employee of employees">
                 <td class="emp-name" >
-                    {{employee.lastName}}, {{employee.firstName}}
                   <i (click)="populateForm(employee)" class="fa-solid fa-circle-info"></i>
+                    <span>
+                      {{employee.lastName}}, {{employee.firstName}}
+                    </span>
                 </td>
                 <td>{{employee.department?.departmentName}}</td>
                 <td>{{employee.securityNumber}}</td>
-                <td>{{employee.address}}</td>
-                <td>{{employee.phoneNumber}}</td>
+                <!-- <td>{{employee.address}}</td>
+                <td>{{employee.phoneNumber}}</td> -->
                 <td>{{employee.salary}}.00 kr</td>
-                  <i (click)="deleteEmployee(employee.employeeID)" class="fa fa-trash"></i>
-            </tr>  
-           
-
+                <i (click)="deleteEmployee(employee.employeeID)" class="fa fa-trash"></i>
+            </tr>           
           </tbody>
         </table> 
     </div>
 
-    <div class="cards-form">
-          <form #form="ngForm" (ngSubmit)="saveEmployee()">
+    <div class="card-header">
+      <h3>Ändra eller lägg till en anställd:</h3>
+    </div>
 
+    <div class="cards-container">
+      <div class="cards-form">
+        <form #form="ngForm" (ngSubmit)="saveEmployee()">
+
+        <div class="form-group">
+          <label for="">Förnamn</label>
+          <input type="text" name="firstName" [(ngModel)] ="employee.firstName"> 
+        </div>
+
+        <div class="form-group">
+          <label for="">Efternamn</label>
+          <input type="text" name="lastName" [(ngModel)] ="employee.lastName"> 
+        </div>
+    
+        <div class="form-group">
+          <label for="">Personnummer</label>
+          <input type="text" name="securityNumber" [(ngModel)] ="employee.securityNumber"> 
+        </div>
+    
+        <div class="form-group form-group-inline">
+    
           <div class="form-group">
-            <label for="">Förnamn</label>
-            <input type="text" name="firstName" [(ngModel)] ="employee.firstName"> 
+            <label for="">Adress</label>
+            <input type="text" name="address" [(ngModel)] ="employee.address"> 
+          </div>
+      
+          <div class="form-group">
+            <label for="">E-Post</label>
+            <input type="text" name="eMail" [(ngModel)] ="employee.eMail"> 
+          </div>
+          <div class="form-group">
+            <label for="">Telefonnummer</label>
+            <input type="text" name="phoneNumber" [(ngModel)] ="employee.phoneNumber"> 
+          </div>
+          <div class="form-group">
+            <label for="">Lön</label>
+            <input type="number" name="salary" [(ngModel)] ="employee.salary" class="salary"> 
           </div>
 
-          <div class="form-group">
-            <label for="">Efternamn</label>
-            <input type="text" name="lastName" [(ngModel)] ="employee.lastName"> 
+          <div class="dropdown">
+            
+            <label for="">Avdelning</label>
+            <select name="department" [(ngModel)] = "employee.departmentID" class="department">
+              <option class="dropbtn" value="" >AVDELNING</option>
+              <option class="dropdown-content" *ngFor="let department of departments" value="{{department.departmentID}}">
+                {{department.departmentName}}
+              </option>
+            </select>
+
+            <label for="">Kön</label>
+            <select name="gender" [(ngModel)] = "employee.genderID" class="gender">
+              <option class="dropbtn" value="" >KÖN</option>
+              <option class="dropdown-content" *ngFor="let gender of genders" value="{{gender.genderID}}">
+                {{gender.genderName}}
+              </option>
+            </select>
           </div>
-      
+        </div>
+    
+          <button class="btn btn-success" type="submit">SPARA</button>
+        </form>
+    
+      </div>
+
+      <div class="emp-card">
+        <form #form="ngForm" (ngSubmit)="saveEmployee()">
+  
           <div class="form-group">
-            <label for="">Personnummer</label>
-            <input type="text" name="securityNumber" [(ngModel)] ="employee.securityNumber"> 
+            <p>{{employee.firstName}}</p>
           </div>
-      
-          <div class="form-group form-group-inline">
-      
-            <div class="form-group">
-              <label for="">Adress</label>
-              <input type="text" name="address" [(ngModel)] ="employee.address"> 
+  
+          <div class="profilepic">
+            <img src="{{employee.profileURL}}"/>
+          </div>
+  
+          <div class="form-group">
+            <p>{{employee.lastName}}</p>
+          </div>
+  
+          <div class="form-group">
+            <p>{{employee.securityNumber}}</p>
+          </div>
+  
+          <div class="form-group">
+            <p>{{employee.phoneNumber}}</p>
+          </div>
+  
+          <div class="form-group">
+            <p>{{employee.eMail}}</p>
+          </div>
+  
+          <div class="form-group">
+            <input type="number" name="salary" [(ngModel)] ="employee.salary" class="salary"> 
+          </div>
+  
+          <div class="background-img">
+            <img src="{{employee.department?.imageURL}}"/>
+          </div>
+  
+          <div class="form-group">
+              <div *ngSwitch="employee.gender?.genderName">
+                <p *ngSwicthCase="'Kvinna'" class="text-success">
+                  <i class="fa-solid fa-venus"></i>
+                </p>
+                <p *ngSwicthCase="'Man'" class="text-success">
+                  <i class="fa-solid fa-mars"></i>
+                </p>
+                <p *ngSwicthCase="'Icke-binär'" class="text-success">
+                  <i class="fa-solid fa-genderless"></i>
+                </p>
+              </div>
             </div>
+        </form>
         
-            <div class="form-group">
-              <label for="">E-Post</label>
-              <input type="text" name="eMail" [(ngModel)] ="employee.eMail"> 
-            </div>
-            <div class="form-group">
-              <label for="">Telefonnummer</label>
-              <input type="text" name="phoneNumber" [(ngModel)] ="employee.phoneNumber"> 
-            </div>
-            <div class="form-group">
-              <label for="">Lön</label>
-              <input type="number" name="salary" [(ngModel)] ="employee.salary"> 
-            </div>
+      </div>
 
-            <div class="dropdown">
-              
-              <label for="">Avdelning</label>
-              <select name="department" [(ngModel)] = "employee.departmentID" class="department">
-                <option class="dropbtn" value="" >AVDELNING</option>
-                <option class="dropdown-content" *ngFor="let department of departments" value="{{department.departmentID}}">
-                  {{department.departmentName}}
-                </option>
-              </select>
-
-              <label for="">Kön</label>
-              <select name="gender" [(ngModel)] = "employee.genderID" class="gender">
-                <option class="dropbtn" value="" >KÖN</option>
-                <option class="dropdown-content" *ngFor="let gender of genders" value="{{gender.genderID}}">
-                  {{gender.genderName}}
-                </option>
-              </select>
-            </div>
-          </div>
-      
-            <button class="btn btn-success" type="submit">SPARA</button>
-          </form>
-      
     </div>
+    
 
-    <div class="emp-card">
-      <form #form="ngForm">
-        <p class="emp-name">
-          <label for="">Lön</label> 
-        </p>
-        <p class="emp-gender"></p>
-        <p class="emp-salary"></p>
-        <p class="emp-secnumber"></p>
-        <p class="emp-address"></p>
-        <p class="emp-phone"></p>
-      </form>
-      
-    </div>
+
   </div>
 
   <div class="department-container">
     <h3>Alla avdelningar</h3>
 
-    <table class="table table-striped">
+    <table class="table table-dark">
         <thead>
             <th>ID</th>
             <th>Avdelning</th>
@@ -125,10 +172,27 @@
                 <td>{{department.departmentName}}</td>
             </tr>
     
-    
         </tbody>
     </table>
-    
+
+    <div class="card-header">
+      <h3>Ändra eller lägg till en avdelning:</h3>
+    </div>
+
+    <div class="dept-cards">
+      <form #form="ngForm" (ngSubmit)="saveDepartment()">
+
+      <div class="form-group">
+        <label for="">Avdelningstitel</label>
+        <input type="text" name="department" [(ngModel)] ="department.departmentName"> 
+      </div>
+
+      <div class="form-group">
+        <label for="">URL för avdelningsbild</label>
+        <input type="text" name="imageURL" [(ngModel)] ="department.imageURL"> 
+      </div>
+
+      </form>
+    </div>
   </div>
-    
 </div>

@@ -7,6 +7,7 @@ namespace Company_API.Models
     {
         [Key]
         public Guid DepartmentID { get; set; } = new Guid();
-        public string DepartmentName { get; set; }
+        public string? DepartmentName { get; set; }
+        public string? ImageURL { get; set; }
     }
 }

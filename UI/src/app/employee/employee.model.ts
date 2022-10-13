@@ -10,6 +10,7 @@ export interface Employee{
     phoneNumber:string,
     securityNumber:string,
     salary:number,
+    profileURL: string,
     departmentID:string,
     genderID:string,
     department:Department|null,

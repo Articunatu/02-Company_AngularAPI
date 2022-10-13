@@ -1,4 +1,5 @@
 export interface Department{
     departmentID:string,
-    departmentName:string
+    departmentName:string,
+    imageURL: string
 }

@@ -14,6 +14,7 @@ namespace Company_API.Models
         public string PhoneNumber { get; set; }
         public string SecurityNumber { get; set; }
         public decimal Salary { get; set; }
+        public string? ProfileURL { get; set; }
         public Guid DepartmentID { get; set; }
         public Guid GenderID { get; set; }
         public Department? Department { get; set; }
