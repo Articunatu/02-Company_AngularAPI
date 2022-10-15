@@ -4,7 +4,7 @@ Web app template by the Microsoft Devices Software Experiences team.
 
 # Client (front-end)
 
-- [Angular](https://reactjs.org/docs/getting-started.html) with [Redux](https://redux.js.org/introduction/getting-started) and [TypeScript](https://www.typescriptlang.org/docs)
+- [Angular](https://reactjs.org/docs/getting-started.html)
 
 # Service (back-end)
 
