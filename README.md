@@ -1,6 +1,6 @@
-# Overview
+# ASP.NET with a common frontend framework
 
-Web app template by the Microsoft Devices Software Experiences team.
+Fictional registry over the departments and employees at a company
 
 # Client (front-end)
 
