@@ -14,5 +14,5 @@ The purpose of this project was to link a backend in .NET to a common frontend f
 - [Swagger UI](https://github.com/swagger-api/swagger-ui)
 
 
-# How the website looks:
+# What the website looks like:
 ![](https://github.com/Articunatu/Company_AngularAPI/blob/master/Documentation/angular-page.gif)
