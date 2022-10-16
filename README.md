@@ -1,7 +1,7 @@
 # 
 
 Fictional registry over the departments and employees at a company
-REST-API with all of the CRUD operations - for two models in total
+REST-API with all of the CRUD operations - for two models in total.
 
 ![](https://github.com/Articunatu/Company_AngularAPI/blob/master/Documentation/angular-page.gif)
 
