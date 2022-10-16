@@ -3,6 +3,8 @@
 Fictional registry over the departments and employees at a company
 REST-API with all of the CRUD operations - for two models in total
 
+![](documentation/angular-page.gif)
+
 # Service (back-end)
 
 - [.NET 6.0](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro)
