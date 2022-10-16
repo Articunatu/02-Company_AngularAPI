@@ -11,7 +11,6 @@ The purpose of this project was to link a backend in .NET to a common frontend f
 - Project type: Web Application
 - Database: SQL Server
 - ORM: [Entity Framework] Code first
-- [Swagger UI](https://github.com/swagger-api/swagger-ui)
 
 
 # What the website looks like:
