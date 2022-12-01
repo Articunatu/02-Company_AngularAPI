@@ -1,5 +1,4 @@
 <div class="container">
-
   <div class="employee-container">
     <h1>Välkommen till företagets hemsida för organisation!</h1>
     <h3>Här nedan kan du se alla som arbetar på vårt företag: </h3>
@@ -30,37 +29,28 @@
           </tbody>
         </table> 
     </div>
-
     <div class="card-header">
       <h3>Ändra eller lägg till en anställd:</h3>
     </div>
-
     <div class="cards-container">
       <div class="cards-form">
         <form #form="ngForm" (ngSubmit)="saveEmployee()">
-
         <div class="form-group">
           <label for="">Förnamn</label>
           <input type="text" name="firstName" [(ngModel)] ="employee.firstName"> 
         </div>
-
         <div class="form-group">
           <label for="">Efternamn</label>
           <input type="text" name="lastName" [(ngModel)] ="employee.lastName"> 
         </div>
-    
         <div class="form-group">
           <label for="">Personnummer</label>
           <input type="text" name="securityNumber" [(ngModel)] ="employee.securityNumber"> 
         </div>
-    
-       
-    
           <div class="form-group">
             <label for="">Adress</label>
             <input type="text" name="address" [(ngModel)] ="employee.address"> 
           </div>
-      
           <div class="form-group">
             <label for="">E-Post</label>
             <input type="text" name="eMail" [(ngModel)] ="employee.eMail"> 
@@ -73,9 +63,7 @@
             <label for="">Lön</label>
             <input type="number" name="salary" [(ngModel)] ="employee.salary" class="salary"> 
           </div>
-
           <div class="dropdown">
-            
             <label for="">Avdelning</label>
             <select name="department" [(ngModel)] = "employee.departmentID" class="department">
               <option class="dropbtn" value="" >AVDELNING</option>
@@ -83,7 +71,6 @@
                 {{department.departmentName}}
               </option>
             </select>
-
             <label for="">Kön</label>
             <select name="gender" [(ngModel)] = "employee.genderID" class="gender">
               <option class="dropbtn" value="" >KÖN</option>
@@ -91,47 +78,31 @@
                 {{gender.genderName}}
               </option>
             </select>
-          
         </div>
-    
           <button class="btn btn-success" type="submit">SPARA</button>
-
-
         </form>
-    
       </div>
-
       <div class="emp-card">
         <form #form="ngForm" (ngSubmit)="saveEmployee()">
             <img src="{{employee.profileURL}}" alt="Profilbild saknas"/>
-
             <div class="card-name">
               <span >{{employee.firstName}}</span>
               <span > {{employee.lastName}}</span>
             </div>
-
             <div class="job">
               <p>{{employee.department?.departmentName}}</p>
             </div>
-  
           <div class="property">
             <i class="fa-solid fa-phone"></i>
             <span>        {{employee.phoneNumber}}</span>
           </div>
-
          <div class="cards-column">
-          <div class="property">
-            
+          <div class="property">         
             <i class="fa-regular fa-envelope"></i>
           <span>        {{employee.eMail}}</span>
         </div>
          </div>
-  
-          
-          
-
-  
-          <div class="gender-symbol">
+            <div class="gender-symbol">
               <div *ngSwitch="employee.gender?.genderName">
                 <p *ngSwicthCase="'Kvinna'" class="text-success">
                   <i class="fa-solid fa-venus"></i>
@@ -145,18 +116,11 @@
               </div>
             </div>
         </form>
-        
       </div>
-
     </div>
-    
-
-
   </div>
-
   <div class="department-container">
     <h3>Alla avdelningar</h3>
-
     <div class="all-dept">
       <table class="table table-dark">
         <thead>
@@ -171,31 +135,23 @@
                 <td>
                   <img src="{{department.imageURL}}" alt="AVDELNING">
                 </td>
-
             </tr>
-    
         </tbody>
     </table>
     </div>
-    
-
     <div class="card-header">
       <h3>Ändra eller lägg till en avdelning:</h3>
     </div>
-
     <div class="dept-cards">
       <form #form="ngForm" (ngSubmit)="saveDepartment()">
-
       <div class="form-group">
         <label for="">Avdelningstitel</label>
         <input type="text" name="department" [(ngModel)] ="department.departmentName"> 
       </div>
-
       <div class="form-group">
         <label for="">URL för avdelningsbild</label>
         <input type="text" name="imageURL" [(ngModel)] ="department.imageURL"> 
       </div>
-
       </form>
     </div>
   </div>
