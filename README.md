@@ -2,7 +2,7 @@
 
 Fictional registry over the departments and employees at a company
 REST-API with all of the CRUD operations - for two models in total.
-The purpose of this project was to link a backend in .NET to a common frontend framework in the industry; which in the case was Angular. 
+The purpose of this project was to link a backend in .NET to a common frontend framework in the industry - which in this case was Angular. 
 
 
 # Backend techniques
