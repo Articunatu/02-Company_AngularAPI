@@ -10,7 +10,7 @@ The purpose of this project was to link a backend in .NET to a common frontend f
 - .NET 6.0  C#
 - Project type: Web Application
 - Database: Microsoft SQL Server
-- ORM: [Entity Framework] Code first
+- ORM: Entity Framework - Code first
 
 
 # What the website looks like:
