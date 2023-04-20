@@ -8,7 +8,7 @@ The purpose of this project was to link a backend in .NET to a common frontend f
 # Backend techniques
 
 - .NET 6.0  C#
-- Project type: Web Application
+- Project type: Web API
 - Database: Microsoft SQL Server
 - ORM: Entity Framework - Code first
 
